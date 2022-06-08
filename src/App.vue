@@ -13,10 +13,9 @@
 			<h2 v-else-if="averageGrade >= 60"> 2nd Class (2:1)</h2>
 			<h2 v-else-if="averageGrade >= 50"> 2nd Class (2:2)</h2>
 			<h2 v-else-if="averageGrade >= 40"> 3rd Class</h2>
-			<div v-else-if="averageGrade <= 39">
-				<h2>Fail</h2>
-				<h4>Not enough Credits yet</h4>
-			</div>
+			<h2 v-else-if="averageGrade >= 1"> Fail</h2>
+			<h4 v-else>Add your grades below...</h4>
+
 		</section>
 
 		<section class="grade-list">
@@ -24,7 +23,7 @@
 			<h4>Overtype the name and grade for each module</h4>
 			<div class="list" id="grade-list">
 				<div class="grade-content">
-					<form id="add-grade" @submit.prevent="addGrade">
+					<form id="add-grade">
 						<table class="table">
 
 							<tr>
@@ -113,7 +112,7 @@ export default {
 			mod2_input_name: "OOP",
 			mod3_input_name: "BDD",
 			mod4_input_name: "SFE",
-			mod5_input_name: "NET",
+			mod5_input_name: "PDN",
 			mod6_input_name: "OSY",
 			mod1_input_grade: 0,
 			mod2_input_grade: 0,
@@ -147,6 +146,12 @@ export default {
 
 }
 
+html {
+	color: #556270;
+	background-image: linear-gradient(-45deg, #c5e0dc, #dcedc2);
+	min-height: 100vh;
+}
+
 main {
 	max-width: 500px;
 	margin: 30px auto;
@@ -163,12 +168,6 @@ button {
 	outline: none;
 	background: none;
 	cursor: initial;
-}
-
-body {
-	color: #556270;
-	background-image: linear-gradient(-45deg, #c5e0dc, #dcedc2);
-	min-height: 96vh;
 }
 
 section {
