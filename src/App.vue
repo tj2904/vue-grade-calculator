@@ -4,99 +4,45 @@
 
 		<section class="heading">
 			<h1>Grade Calculator</h1>
-			<!-- <h2 class="welcome">
-				Hi there, <input type="text" id="name" placeholder="<Name here>" v-model="user_name">
-			</h2> -->
+			<h2 class="welcome">
+				Hi there, <input type="text" id="name" placeholder="friend..." v-model="user_name">
+			</h2>
 		</section>
 		<section class="result">
-			<h2 v-if="averageGrade >= 70"> 1st Class!</h2>
-			<h2 v-else-if="averageGrade >= 60"> 2nd Class (2:1)</h2>
-			<h2 v-else-if="averageGrade >= 50"> 2nd Class (2:2)</h2>
-			<h2 v-else-if="averageGrade >= 40"> 3rd Class</h2>
-			<h2 v-else-if="averageGrade >= 1"> Fail</h2>
+			<h2 v-if="avg >= 70"> 1st Class!</h2>
+			<h2 v-else-if="avg >= 60"> 2nd Class (2:1)</h2>
+			<h2 v-else-if="avg >= 50"> 2nd Class (2:2)</h2>
+			<h2 v-else-if="avg >= 40"> 3rd Class</h2>
+			<h2 v-else-if="avg >= 1"> Fail</h2>
 			<h4 v-else>Add your grades below...</h4>
 
 		</section>
 
 		<section class="grade-list">
 			<h3>What are your grades so far?</h3>
-			<h4>Overtype the name and grade for each module</h4>
-			<div class="list" id="grade-list">
-				<div class="grade-content">
-					<form id="add-grade">
-						<table class="table">
-
-							<tr>
-								<th>Module</th>
-								<th>Grade</th>
-							</tr>
-							<tr>
-								<td> <input type="text" name="module_name" id="mod1_input_name" placeholder="ADP"
-										v-model="mod1_input_name" /></td>
-								<td> <input class="grade-entry
-							" type="text" name="module_grade" id="mod1_input_grade" placeholder="0" v-model.number="mod1_input_grade" />
-								</td>
-							</tr>
-
-							<tr>
-								<td> <input type="text" name="module_name" id="mod2_input_name"
-										v-model="mod2_input_name" /></td>
-								<td> <input class="grade-entry
-							" type="text" name="module_grade" id="mod2_input_grade" v-model.number="mod2_input_grade" /></td>
-							</tr>
-							<tr>
-								<td> <input type="text" name="module_name" id="mod3_input_name"
-										v-model="mod3_input_name" />
-								</td>
-								<td> <input class="grade-entry
-							" type="text" name="module_grade" id="mod3_input_grade" v-model.number="mod3_input_grade" /></td>
-							</tr>
-							<tr>
-								<td> <input type="text" name="module_name" id="mod4_input_name"
-										v-model="mod4_input_name" />
-								</td>
-								<td> <input class="grade-entry
-							" type="text" name="module_grade" id="mod4_input_grade" v-model.number="mod4_input_grade" /></td>
-							</tr>
-							<tr>
-								<td> <input type="text" name="module_name" id="mod5_input_name"
-										v-model="mod5_input_name" />
-								</td>
-								<td> <input class="grade-entry
-							" type="text" name="module_grade" id="mod5_input_grade" v-model.number="mod5_input_grade" /></td>
-							</tr>
-							<tr>
-								<td> <input type="text" name="module_name" id="mod6_input_name"
-										v-model="mod6_input_name" />
-								</td>
-								<td> <input class="grade-entry
-							" type="text" name="module_grade" id="mod6_input_grade" v-model.number="mod6_input_grade" />
-								</td>
-							</tr>
-							<tr>
-								<td>Module Average:</td>
-								<td> {{ avgGrade =
-										Math.round((mod1_input_grade + mod2_input_grade +
-											mod3_input_grade + mod4_input_grade +
-											mod5_input_grade + mod6_input_grade) / 6)
-								}}
-								</td>
-							</tr>
-						</table>
-
-					</form>
-				</div>
-			</div>
+			<h4>Overtype the grade (and/or title) for each module</h4>
 		</section>
+
+		<section>
+			<table>
+				<tr>
+					<th>Module</th>
+					<th>Grade</th>
+				</tr>
+				<tr v-for="(result, index) in results" :class="[`index--${index}`]" v-bind:key="index">
+					<td><input class="mod-entry" v-model="result.modName"></td>
+					<td><input class="grade-entry modGrade" v-model.number="result.modGrade"></td>
+				</tr>
+				<tr>
+					<td>Average Grade</td>
+					<td> {{ avg }} </td>
+				</tr>
+			</table>
+		</section>
+
 		<footer>
 			<a href="https://github.com/tj2904/vue-grade-calculator"><i class="fa fa-github"></i></a>
 		</footer>
-		<!-- <GradesInput v-model.number="avgGrade" />
-<GradesInput v-model.number="avgGrade" />
-<GradesInput v-model.number="avgGrade" />
-<GradesInput v-model.number="avgGrade" />
-<GradesInput v-model.number="avgGrade" />
-<GradesInput v-model.number="avgGrade" /> -->
 
 	</main>
 
@@ -108,32 +54,44 @@ export default {
 
 	data() {
 		return {
-			mod1_input_name: "ADP",
-			mod2_input_name: "OOP",
-			mod3_input_name: "BDD",
-			mod4_input_name: "SFE",
-			mod5_input_name: "PDN",
-			mod6_input_name: "OSY",
-			mod1_input_grade: 0,
-			mod2_input_grade: 0,
-			mod3_input_grade: 0,
-			mod4_input_grade: 0,
-			mod5_input_grade: 0,
-			mod6_input_grade: 0,
-			avgGrade: 0,
-			user_name: ""
+
+			user_name: "",
+
+			results: [
+				{ modName: "Networks", modGrade: 0 },
+				{ modName: "OOP", modGrade: 0 },
+				{ modName: "Adv Programming", modGrade: 0 },
+				{ modName: "Software Engineering", modGrade: 0 },
+				{ modName: "Operating Systems", modGrade: 0 },
+				{ modName: "Big Data & Databases", modGrade: 0 }
+			],
 
 		}
 	},
 	computed: {
-		averageGrade: function () {
-			return Math.round((this.mod1_input_grade + this.mod2_input_grade +
-				this.mod3_input_grade + this.mod4_input_grade +
-				this.mod5_input_grade + this.mod6_input_grade) / 6)
+		avg() {
+			return Math.round(this.results.reduce((a, b) => a + b.modGrade, 0) / this.results.length);
+		}
+	},
+	watch: {
+		user_name(newName) { localStorage.setItem('user_name', newName) },
+		results: {
+			handler() {
+				localStorage.setItem('results', JSON.stringify(this.results))
+			},
+			deep: true
+		}
+	},
+
+	mounted() {
+		if (localStorage.user_name) {
+			this.user_name = localStorage.user_name;
+		}
+		if (localStorage.getItem("results")) {
+			this.results = JSON.parse(localStorage.getItem("results"));
 		}
 	}
 }
-
 
 </script>
 
@@ -143,7 +101,6 @@ export default {
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'montserrat', sans-serif;
-
 }
 
 html {
@@ -166,8 +123,8 @@ button {
 	appearance: none;
 	border: none;
 	outline: none;
-	background: none;
 	cursor: initial;
+	background: inherit;
 }
 
 section {
