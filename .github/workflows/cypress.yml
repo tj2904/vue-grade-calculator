@@ -11,6 +11,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
+          start: npm run serve
+          wait-on: http://localhost:8080/
           record: true
         env:
           # pass the Dashboard record key as an environment variable
