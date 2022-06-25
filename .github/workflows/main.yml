@@ -26,15 +26,11 @@ jobs:
           # pass the project ID from the secrets through environment variable
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
 
-  build_vue:
-    runs-on: ubuntu-latest
-    name: Build Vue
-    needs: cypress-run
-    steps:
-    - uses: actions/checkout@v2
-    - id: Build-Vue
-      uses: xRealNeon/VuePagesAction@1.0.1
-      with:
-        username: 'tj2904'
-        reponame: 'vue-grade-calculator'
-        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+      - name: Build Checkout
+      - uses: actions/checkout@v2
+      - id: Build-Vue
+        uses: xRealNeon/VuePagesAction@1.0.1
+        with:
+          username: 'tj2904'
+          reponame: 'vue-grade-calculator'
+          token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
