@@ -1,0 +1,19 @@
+name: Build & Deploy 🏗
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Deploy-GitHub-Pages:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Build & Deploy
+        uses: actions/checkout@v2
+        id: Build-Vue
+       
+      - uses: xRealNeon/VuePagesAction@1.0.1
+        with:
+          username: 'tj2904'
+          reponame: 'vue-grade-calculator'
+          token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
