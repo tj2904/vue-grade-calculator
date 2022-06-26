@@ -1,14 +1,14 @@
-name: Build
+name: Test 🧪
 on: [pull_request]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout
+      - name: Checkout 🧳
         uses: actions/checkout@v2
       
-      - name: Cypress run
+      - name: Cypress run 🔬
         uses: cypress-io/github-action@v4
         with:
           start: npm run serve
@@ -21,13 +21,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # pass the project ID from the secrets through environment variable
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-
-      - name: Build & Deploy
-        uses: actions/checkout@v2
-        id: Build-Vue
-       
-      - uses: xRealNeon/VuePagesAction@1.0.1
-        with:
-          username: 'tj2904'
-          reponame: 'vue-grade-calculator'
-          token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
