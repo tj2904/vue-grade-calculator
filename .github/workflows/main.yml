@@ -1,6 +1,6 @@
 name: Build Vue
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       
       - name: Cypress run
-        uses: cypress-io/github-action@v4
+      - uses: cypress-io/github-action@v4
         with:
           start: npm run serve
           wait-on: http://localhost:8080/
@@ -29,7 +29,8 @@ jobs:
       - name: Build Checkout
       - uses: actions/checkout@v2
       - id: Build-Vue
-        uses: xRealNeon/VuePagesAction@1.0.1
+       
+      - uses: xRealNeon/VuePagesAction@1.0.1
         with:
           username: 'tj2904'
           reponame: 'vue-grade-calculator'
