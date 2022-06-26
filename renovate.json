@@ -1,5 +1,27 @@
 {
   "extends": [
     "config:base"
+  ],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "labels": [
+    "type: dependencies",
+    "renovate"
+  ],
+  "ignoreTests": false,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["eslint"],
+      "groupName": "eslint"
+    }
+  ],
+  "masterIssue": true,
+  "prConcurrentLimit": 8,
+  "prHourlyLimit": 4,
+  "timezone": "Europe/London",
+  "schedule": [
+    "before 5am every day"
   ]
 }
