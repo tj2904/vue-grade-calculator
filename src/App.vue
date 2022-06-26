@@ -20,7 +20,7 @@
 
 		<section class="grade-list">
 			<h3>What are your grades so far?</h3>
-			<h4>Overtype the grade (and/or title) for each module.</h4>
+			<h4>Overtype the grade (and/or title) for each module...</h4>
 		</section>
 
 		<section>
