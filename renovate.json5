@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "config:base", "group:nodeJs",
+  ],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "labels": [
+    "type: dependencies",
+    "renovate"
+  ],
+  "ignoreTests": false,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["eslint"],
+      "groupName": "eslint"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "devDependencies (non-major)"
+    }
+  ],
+  "masterIssue": true,
+  "prConcurrentLimit": 8,
+  "prHourlyLimit": 6,
+  "timezone": "Europe/London",
+  "schedule": [
+    "before 9am every day"
+  ]
+}
