@@ -24,9 +24,9 @@
   ],
   "masterIssue": true,
   "prConcurrentLimit": 8,
-  "prHourlyLimit": 4,
+  "prHourlyLimit": 6,
   "timezone": "Europe/London",
   "schedule": [
-    "before 5am every day"
+    "before 9am every day"
   ]
 }
