@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base"
+    "config:base", "group:nodeJs",
   ],
   "automerge": true,
   "major": {
@@ -15,6 +15,11 @@
     {
       "matchPackagePatterns": ["eslint"],
       "groupName": "eslint"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "devDependencies (non-major)"
     }
   ],
   "masterIssue": true,
