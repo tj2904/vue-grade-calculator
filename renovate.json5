@@ -22,7 +22,7 @@
       "groupName": "devDependencies (non-major)"
     }
   ],
-  "reviewer": ["tj2904"],
+  "reviewers": ["tj2904"],
   "masterIssue": true,
   "prConcurrentLimit": 8,
   "prHourlyLimit": 6,
