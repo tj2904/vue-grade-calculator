@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<td>Average Grade</td>
-					<td> {{ avg }} %</td>
+					<td> {{ avg }} % </td>
 				</tr>
 			</table>
 		</section>
