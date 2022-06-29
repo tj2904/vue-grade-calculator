@@ -20,7 +20,7 @@
 
 		<section class="grade-list">
 			<h3>What are your grades so far?</h3>
-			<h4>Overtype the grade (and/or title) for each module</h4>
+			<h4>Overtype the grade (and/or title) for each module...</h4>
 		</section>
 
 		<section>
@@ -41,7 +41,7 @@
 		</section>
 
 		<footer>
-			<a href="https://github.com/tj2904/vue-grade-calculator"><i class="fa fa-github"></i></a>
+			<a href="https://github.com/tj2904/vue-grade-calculator" aria-label="Link to github"><i class="fa fa-github"></i></a>
 		</footer>
 
 	</main>
@@ -96,6 +96,152 @@ export default {
 </script>
 
 <style>
+/* DARK MODE */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'montserrat', sans-serif;
+}
+
+html {
+	color: #556270;
+	background-image: linear-gradient(-45deg, #000, #166D3B);
+	min-height: 100vh;
+}
+
+main {
+	max-width: 500px;
+	margin: 30px auto;
+	padding: 20px;
+	background-color: rgba(238, 238, 238, 0.55);
+	border: 1px solid #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+	appearance: none;
+	border: none;
+	outline: none;
+	cursor: initial;
+	background: inherit;
+}
+
+section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5em;
+}
+
+footer {
+	text-align: center;
+}
+
+footer > a:visited, footer > a:hover {
+	color: #000
+}
+
+h1 {
+	text-align: center;
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+	margin: 0.5rem;
+}
+
+h3 {
+	color: #313154;
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+h4 {
+	color: #1E4147;
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+}
+
+th,
+td {
+	border: 1px solid black;
+	padding: 0.5rem;
+	border-collapse: collapse;
+}
+
+/* alternate row striping */
+tr:nth-child(even) {
+	background-color: #FFF;
+}
+
+tr:last-child {
+	text-align: center;
+	font-weight: 700;
+	color: #1E4147
+}
+
+.grade-entry {
+	text-align: center;
+}
+
+.heading .welcome {
+	display: flex;
+}
+
+.heading .welcome input {
+	margin-left: 0.5rem;
+	flex: 1 1 0%;
+	min-width: 0;
+}
+
+.heading .welcome,
+.heading .welcome input {
+	color: #313154;
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 2.5rem;
+}
+
+.result {
+	text-align: center;
+	padding: 0.25rem;
+	margin: 0.25rem;
+	line-height: 2rem;
+	border: 2px solid #1e4147cc;
+	background-color: #FAE3B4;
+	border-radius: 5px;
+	max-width: 70%;
+	margin: auto;
+}
+
+.grade-list .list {
+	margin: 1rem 0;
+}
+
+.grade-list .todo-item {
+	display: flex;
+	align-items: center;
+	background-color: #FFF;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	margin-bottom: 1rem;
+}
+
+
+
+/*  LIGHT MODE 
 * {
 	margin: 0;
 	padding: 0;
@@ -138,6 +284,11 @@ footer {
 	text-align: center;
 }
 
+footer>a:visited,
+footer>a:hover {
+	color: #000
+}
+
 h1 {
 	text-align: center;
 	font-size: 2.5rem;
@@ -156,7 +307,7 @@ h3 {
 }
 
 h4 {
-	color: #888;
+	color: #1E4147;
 	font-size: 0.875rem;
 	font-weight: 700;
 }
@@ -175,7 +326,7 @@ td {
 	border-collapse: collapse;
 }
 
-/* alternate row striping */
+
 tr:nth-child(even) {
 	background-color: #FFF;
 }
@@ -183,6 +334,7 @@ tr:nth-child(even) {
 tr:last-child {
 	text-align: center;
 	font-weight: 700;
+	color: #1E4147
 }
 
 .grade-entry {
@@ -212,8 +364,8 @@ tr:last-child {
 	padding: 0.25rem;
 	margin: 0.25rem;
 	line-height: 2rem;
-	border: 2px solid #999;
-	background-color: rgb(226, 196, 63);
+	border: 2px solid #1e4147cc;
+	background-color: #FAE3B4;
 	border-radius: 5px;
 	max-width: 70%;
 	margin: auto;
@@ -231,5 +383,7 @@ tr:last-child {
 	border-radius: 0.5rem;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	margin-bottom: 1rem;
-}
+} */
+
+
 </style>
