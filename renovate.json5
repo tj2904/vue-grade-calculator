@@ -5,7 +5,7 @@
   "automerge": true,
   "major": {
     "automerge": false,
-    "assignee": ["tj2904"]
+    "reviewer": ["tj2904"]
   },
   "labels": [
     "type: dependencies",
