@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<td>Average Grade</td>
-					<td data-test="AvgGrade"> {{ avg }} </td>
+					<td data-test="AvgGrade"> {{ avg }} %</td>
 				</tr>
 			</table>
 		</section>

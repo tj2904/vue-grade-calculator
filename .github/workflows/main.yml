@@ -1,14 +1,23 @@
-name: Build Vue
-on: [push]
+name: Test 🧪
+on: [pull_request]
+
 jobs:
-  build_vue:
-    runs-on: ubuntu-latest
-    name: Build Vue
+  cypress-run:
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - id: Build-Vue
-      uses: xRealNeon/VuePagesAction@1.0.1
-      with:
-        username: 'tj2904'
-        reponame: 'vue-grade-calculator'
-        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+      - name: Checkout 🧳
+        uses: actions/checkout@v3
+      
+      - name: Cypress run 🔬
+        uses: cypress-io/github-action@v4
+        with:
+          start: npm run serve
+          wait-on: http://localhost:8080/
+          record: true
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # pass the project ID from the secrets through environment variable
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
