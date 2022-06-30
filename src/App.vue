@@ -105,8 +105,8 @@ export default {
 }
 
 html {
-	color: #556270;
-	background-image: linear-gradient(-45deg, #000, #166D3B);
+	color: #929294;
+background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
 	min-height: 100vh;
 }
 
@@ -114,8 +114,8 @@ main {
 	max-width: 500px;
 	margin: 30px auto;
 	padding: 20px;
-	background-color: rgba(238, 238, 238, 0.55);
-	border: 1px solid #fff;
+	background-color: rgba(41, 57, 75, 0.938);
+	border: 1px solid rgb(29, 41, 94);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -140,7 +140,7 @@ footer {
 }
 
 footer > a:visited, footer > a:hover {
-	color: #000
+	color: rgb(22, 22, 22)
 }
 
 h1 {
@@ -154,14 +154,14 @@ h2 {
 }
 
 h3 {
-	color: #313154;
+	color: #929294;
 	font-size: 1rem;
 	font-weight: 400;
 	margin-bottom: 0.5rem;
 }
 
 h4 {
-	color: #1E4147;
+	color: #5c797e;
 	font-size: 0.875rem;
 	font-weight: 700;
 }
@@ -182,17 +182,22 @@ td {
 
 /* alternate row striping */
 tr:nth-child(even) {
-	background-color: #FFF;
+	background-color: rgb(63, 82, 95);
 }
 
 tr:last-child {
 	text-align: center;
 	font-weight: 700;
-	color: #1E4147
+	color: #929294
 }
 
 .grade-entry {
 	text-align: center;
+	color: #929294;
+}
+
+.mod-entry {
+	color: #929294;
 }
 
 .heading .welcome {
@@ -207,7 +212,7 @@ tr:last-child {
 
 .heading .welcome,
 .heading .welcome input {
-	color: #313154;
+	color: #929294;
 	font-size: 1.5rem;
 	font-weight: 700;
 	line-height: 2.5rem;
@@ -219,7 +224,7 @@ tr:last-child {
 	margin: 0.25rem;
 	line-height: 2rem;
 	border: 2px solid #1e4147cc;
-	background-color: #FAE3B4;
+	background-color: #5c797e;
 	border-radius: 5px;
 	max-width: 70%;
 	margin: auto;
