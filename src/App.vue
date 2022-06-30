@@ -1,7 +1,7 @@
 <template>
 
 	<main class="class">
-
+		<theme-button />
 		<section class="heading">
 			<h1>Grade Calculator</h1>
 			<h2 class="welcome">
@@ -41,7 +41,8 @@
 		</section>
 
 		<footer>
-			<a href="https://github.com/tj2904/vue-grade-calculator" aria-label="Link to github"><i class="fa fa-github"></i></a>
+			<a href="https://github.com/tj2904/vue-grade-calculator" aria-label="Link to github"><i
+					class="fa fa-github"></i></a>
 		</footer>
 
 	</main>
@@ -49,9 +50,11 @@
 </template>
 
 <script>
+import ThemeButton from "@/components/ThemeButton.vue";
 
 export default {
 
+	components: { ThemeButton },
 	data() {
 		return {
 
@@ -96,7 +99,48 @@ export default {
 </script>
 
 <style>
-/* DARK MODE */
+:root {
+	--background: linear-gradient(-45deg, #c5e0dc, #dcedc2);
+	--base-color: #556270;
+	--main-background-color: rgba(238, 238, 238, 0.55);
+	--table-border: 1px solid #fff;
+	--h3-color: #313154;
+	--h4-color: #1E4147;
+
+	--result-bg-color: #FAE3B4;
+	--result-border: #1e4147cc;
+	--result-alt-row: rgb(240, 252, 245);
+	--entry-color: #556270;
+
+	/* for the theme switcher */
+	--background-color-primary: #ebebeb;
+	--background-color-secondary: #fafafa;
+	--accent-color: #cacaca;
+	--text-primary-color: #222;
+	--element-size: 2.75rem;
+}
+
+:root.dark-theme {
+	--background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
+	--base-color: #929294;
+	--main-background-color: rgba(41, 57, 75, 0.938);
+	--table-border: 1px solid rgb(29, 41, 94);
+
+	--h3-color: #929294;
+	--h4-color: #5c797e;
+
+	--result-bg-color: #5c797e;
+	--result-border: #1e4147cc;
+	--result-alt-row: #3f525f;
+	--entry-color: #929294;
+
+	/* for the theme switcher */
+	--background-color-primary: #1e1e1e;
+	--background-color-secondary: #2d2d30;
+	--accent-color: #3f3f3f;
+	--text-primary-color: #ddd;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -105,8 +149,8 @@ export default {
 }
 
 html {
-	color: #929294;
-background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
+	color: var(--base-color);
+	background: var(--background);
 	min-height: 100vh;
 }
 
@@ -114,158 +158,8 @@ main {
 	max-width: 500px;
 	margin: 30px auto;
 	padding: 20px;
-	background-color: rgba(41, 57, 75, 0.938);
-	border: 1px solid rgb(29, 41, 94);
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-}
-
-input:not([type="radio"]):not([type="checkbox"]),
-button {
-	appearance: none;
-	border: none;
-	outline: none;
-	cursor: initial;
-	background: inherit;
-}
-
-section {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	padding-left: 1.5rem;
-	padding-right: 1.5em;
-}
-
-footer {
-	text-align: center;
-}
-
-footer > a:visited, footer > a:hover {
-	color: rgb(22, 22, 22)
-}
-
-h1 {
-	text-align: center;
-	font-size: 2.5rem;
-}
-
-h2 {
-	font-size: 2.5rem;
-	margin: 0.5rem;
-}
-
-h3 {
-	color: #929294;
-	font-size: 1rem;
-	font-weight: 400;
-	margin-bottom: 0.5rem;
-}
-
-h4 {
-	color: #5c797e;
-	font-size: 0.875rem;
-	font-weight: 700;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	border: 1px solid black;
-	text-align: center;
-}
-
-th,
-td {
-	border: 1px solid black;
-	padding: 0.5rem;
-	border-collapse: collapse;
-}
-
-/* alternate row striping */
-tr:nth-child(even) {
-	background-color: rgb(63, 82, 95);
-}
-
-tr:last-child {
-	text-align: center;
-	font-weight: 700;
-	color: #929294
-}
-
-.grade-entry {
-	text-align: center;
-	color: #929294;
-}
-
-.mod-entry {
-	color: #929294;
-}
-
-.heading .welcome {
-	display: flex;
-}
-
-.heading .welcome input {
-	margin-left: 0.5rem;
-	flex: 1 1 0%;
-	min-width: 0;
-}
-
-.heading .welcome,
-.heading .welcome input {
-	color: #929294;
-	font-size: 1.5rem;
-	font-weight: 700;
-	line-height: 2.5rem;
-}
-
-.result {
-	text-align: center;
-	padding: 0.25rem;
-	margin: 0.25rem;
-	line-height: 2rem;
-	border: 2px solid #1e4147cc;
-	background-color: #5c797e;
-	border-radius: 5px;
-	max-width: 70%;
-	margin: auto;
-}
-
-.grade-list .list {
-	margin: 1rem 0;
-}
-
-.grade-list .todo-item {
-	display: flex;
-	align-items: center;
-	background-color: #FFF;
-	padding: 1rem;
-	border-radius: 0.5rem;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	margin-bottom: 1rem;
-}
-
-
-
-/*  LIGHT MODE 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'montserrat', sans-serif;
-}
-
-html {
-	color: #556270;
-	background-image: linear-gradient(-45deg, #c5e0dc, #dcedc2);
-	min-height: 100vh;
-}
-
-main {
-	max-width: 500px;
-	margin: 30px auto;
-	padding: 20px;
-	background-color: rgba(238, 238, 238, 0.55);
-	border: 1px solid #fff;
+	background-color: var(--main-background-color);
+	border: var(--table-border);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -291,7 +185,7 @@ footer {
 
 footer>a:visited,
 footer>a:hover {
-	color: #000
+	color: rgb(22, 22, 22)
 }
 
 h1 {
@@ -305,14 +199,14 @@ h2 {
 }
 
 h3 {
-	color: #313154;
+	color: var(--h3-color);
 	font-size: 1rem;
 	font-weight: 400;
 	margin-bottom: 0.5rem;
 }
 
 h4 {
-	color: #1E4147;
+	color: var(--h4-color);
 	font-size: 0.875rem;
 	font-weight: 700;
 }
@@ -331,19 +225,24 @@ td {
 	border-collapse: collapse;
 }
 
-
+/* alternate row striping */
 tr:nth-child(even) {
-	background-color: #FFF;
+	background-color: var(--result-alt-row);
 }
 
 tr:last-child {
 	text-align: center;
 	font-weight: 700;
-	color: #1E4147
+	color: var(--h3-color)
 }
 
 .grade-entry {
 	text-align: center;
+	color: var(--base-color);
+}
+
+.mod-entry {
+	color: var(--base-color);
 }
 
 .heading .welcome {
@@ -358,7 +257,7 @@ tr:last-child {
 
 .heading .welcome,
 .heading .welcome input {
-	color: #313154;
+	color: #929294;
 	font-size: 1.5rem;
 	font-weight: 700;
 	line-height: 2.5rem;
@@ -369,8 +268,8 @@ tr:last-child {
 	padding: 0.25rem;
 	margin: 0.25rem;
 	line-height: 2rem;
-	border: 2px solid #1e4147cc;
-	background-color: #FAE3B4;
+	border: 2px solid var(--result-border);
+	background-color: var(--result-bg-color);
 	border-radius: 5px;
 	max-width: 70%;
 	margin: auto;
@@ -388,7 +287,5 @@ tr:last-child {
 	border-radius: 0.5rem;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	margin-bottom: 1rem;
-} */
-
-
+}
 </style>
