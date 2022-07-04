@@ -24,7 +24,7 @@
 		</section>
 
 		<section>
-			<table>
+			<table class="grade-table">
 				<tr>
 					<th>Module</th>
 					<th>Grade</th>
@@ -163,6 +163,7 @@ main {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
+
 input:not([type="radio"]):not([type="checkbox"]),
 button {
 	appearance: none;
@@ -288,4 +289,28 @@ tr:last-child {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	margin-bottom: 1rem;
 }
+
+
+@media screen and (max-width:780px) {
+	main {
+		max-width: none;
+		margin: 10px;
+		padding: 0px;
+		background: var(--background);
+		border: 0px;
+		box-shadow: none;
+		min-height: 100vh;
+	}
+
+	.grade-table, .grade-entry {
+		width: 100px;
+		padding: 0px;
+		margin: auto;
+		/* margin-bottom: 20px; */
+		border-collapse: collapse;
+		border: 1px solid red;
+		text-align: center;
+	}
+}
+
 </style>
