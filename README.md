@@ -1,5 +1,6 @@
 # vue-grade-calculator
-
+![workflow](https://github.com/tj2904/vue-grade-calculator/actions/workflows/main.yml/badge.svg)
+![workflow](https://github.com/tj2904/vue-grade-calculator/actions/workflows/deploy.yml/badge.svg)
 ## Project setup
 ```
 npm install

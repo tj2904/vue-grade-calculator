@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<td>Average Grade</td>
-					<td data-test="AvgGrade"> {{ avg }} </td>
+					<td data-test="AvgGrade"> {{ avg }} %</td>
 				</tr>
 			</table>
 		</section>
@@ -122,15 +122,15 @@ export default {
 
 :root.dark-theme {
 	--background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
-	--base-color: #929294;
+	--base-color: #949292;
 	--main-background-color: rgba(41, 57, 75, 0.938);
 	--table-border: 1px solid rgb(29, 41, 94);
 
-	--h3-color: #929294;
+	--h3-color: #949292;
 	--h4-color: #5c797e;
 
-	--result-bg-color: #5c797e;
-	--result-border: #1e4147cc;
+	--result-bg-color: #363636;
+	--result-border: #5c797e;
 	--result-alt-row: #3f525f;
 	--entry-color: #929294;
 
