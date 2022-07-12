@@ -303,10 +303,8 @@ tr:last-child {
 	}
 
 	.grade-table, .grade-entry {
-		width: 100px;
 		padding: 0px;
 		margin: auto;
-		/* margin-bottom: 20px; */
 		border-collapse: collapse;
 		border: 1px solid red;
 		text-align: center;
