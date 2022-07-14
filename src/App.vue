@@ -41,8 +41,8 @@
 		</section>
 
 		<footer>
-			<a href="https://github.com/tj2904/vue-grade-calculator" aria-label="Link to github"><i
-					class="fa fa-github"></i></a>
+		<!--	<a href="https://github.com/tj2904/vue-grade-calculator" aria-label="Link to github"><i
+					class="fa fa-github"></i></a> -->
 		</footer>
 
 	</main>
