@@ -19,7 +19,7 @@
     "@vue/cli-service": "5.0.8",
     "cypress": "11.2.0",
     "eslint": "8.46.0",
-    "eslint-plugin-vue": "9.15.1"
+    "eslint-plugin-vue": "9.16.0"
   },
   "eslintConfig": {
     "root": true,
